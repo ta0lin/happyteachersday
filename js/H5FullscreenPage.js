@@ -280,7 +280,8 @@
             }
             $('body').append('<div class="overlay"></div>');
             if (opt.useArrow) {
-                $('.item').slice(0,$('.item').length-1).append('<span class="arrow"></span><div style="width: 100%;text-align: center;position: absolute;bottom:10px;font-size: .18rem">向下滑动</div>');
+                $(".item1").append('<button id="button"></button>')
+                $('.item').slice(1,$('.item').length-1).append('<span class="arrow"></span><div style="width: 100%;text-align: center;position: absolute;bottom:10px;font-size: .18rem">向下滑动</div>');
             }
             if (opt.useMusic) {
                 var autoplay = opt.useMusic.autoPlay ? 'autoplay="autoplay"' : '';
@@ -383,14 +384,19 @@
                     'swipeDown': swipeDown
                 });
             } else {
-                $('.item').on({
+                $('.item').not('.item1').on({
                    'touchstart': touchStart,
                    'touchmove': touchMove,
                    'touchend': touchEnd,
                    'touchcancel': touchEnd
                 });
             }
-
+            $("#button").on('tap',function (){
+                var r = gotoindex();
+                if (r) {
+                    obj[opt.type].upDrag(1.43, $(".item1"));
+                }
+            })
             $('.item').on('tap', function(){
                 //覆盖层隐藏
                 $('.overlay').hide();
