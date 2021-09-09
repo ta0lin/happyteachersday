@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../font/SourceHanSansCN-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Robotobold';
+    src: url('../font/SourceHanSansCN-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
